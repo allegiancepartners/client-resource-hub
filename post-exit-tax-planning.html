@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<!-- saved from url=(0138)file:///C:/Users/johna/OneDrive/Desktop/Post-Exit%20Tax%20Planning%20%E2%80%94%20PPLI%20Illustration%20%C2%B7%20Allegiance%20Partners.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Post-Exit Tax Planning — PPLI Illustration · Allegiance Partners</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#F7F9FC;color:#0b0b0b;padding:32px;max-width:960px;margin:0 auto;font-size:14px;line-height:1.5}
+h1{font-size:20px;font-weight:500;margin-bottom:4px}
+.sub{font-size:13px;color:#52514e;margin-bottom:24px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:10px;margin-bottom:20px}
+.card{background:#fff;border:0.5px solid #e0dfd8;border-radius:8px;padding:14px}
+.card label{font-size:12px;color:#52514e;display:block;margin-bottom:6px}
+.card input[type=range]{width:100%;margin-bottom:4px;accent-color:#185FA5}
+.card input[type=number]{width:100%;font-size:14px;border:0.5px solid #c8c7c0;border-radius:6px;padding:6px 8px;font-family:inherit}
+.sv{font-size:17px;font-weight:500;color:#0b0b0b}
+.divider{font-size:11px;font-weight:500;color:#888;text-transform:uppercase;letter-spacing:.06em;margin:20px 0 10px;padding-bottom:6px;border-bottom:0.5px solid #e0dfd8}
+.sum{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
+.sc{border-radius:12px;padding:16px;border:0.5px solid #e0dfd8}
+.sc.s1a{background:#FDF3F3;border-color:#F0C0C0}
+.sc.s1b{background:#FCEBEB;border-color:#E24B4A}
+.sc.s2{background:#F0F4FD;border-color:#B5D4F4}
+.sc.s3{background:#EAF3DE;border-color:#A8D5A2}
+.sl{font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.05em;margin-bottom:5px}
+.sl.r{color:#A32D2D}.sl.rr{color:#791F1F}.sl.b{color:#185FA5}.sl.g{color:#3B6D11}
+.stitle{font-size:13px;font-weight:500;margin-bottom:8px;line-height:1.35;color:#0b0b0b}
+.sval{font-size:26px;font-weight:500;margin-bottom:3px}
+.sval.r{color:#c0392b}.sval.rr{color:#791F1F}.sval.b{color:#185FA5}.sval.g{color:#1a7a4a}
+.ssub{font-size:11px;color:#888;line-height:1.4}
+.tbl-wrap{overflow-x:auto;margin-bottom:10px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{font-size:11px;font-weight:500;color:#52514e;padding:8px 10px;text-align:right;border-bottom:1px solid #c8c7c0;background:#f7f9fc;line-height:1.4}
+th:first-child{text-align:left}
+td{padding:8px 10px;text-align:right;border-bottom:0.5px solid #e8e7e0;color:#0b0b0b}
+td:first-child{text-align:left;color:#52514e;font-weight:500}
+tr:nth-child(even) td{background:#fafaf8}
+td.r{color:#c0392b;font-weight:500}
+td.rr{color:#791F1F;font-weight:500}
+td.b{color:#185FA5;font-weight:500}
+td.g{color:#1a7a4a;font-weight:500}
+.note{font-size:12px;color:#52514e;line-height:1.6;padding:12px 14px;background:#fff;border-radius:8px;border:0.5px solid #e0dfd8;margin-top:10px}
+.footer{margin-top:28px;font-size:11px;color:#888;text-align:center;padding-top:16px;border-top:0.5px solid #e0dfd8}
+@media(max-width:520px){.sum{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<h1>Post-exit tax planning — scenario comparison</h1>
+<p class="sub">All figures net of costs and taxes &nbsp;·&nbsp; NY resident &nbsp;·&nbsp; Allegiance Partners &nbsp;·&nbsp; Confidential</p>
+
+<div class="grid">
+  <div class="card"><label>Initial capital ($)</label><input type="number" id="cap" value="20000000" step="1000000" oninput="go()"></div>
+  <div class="card"><label>Client age</label><input type="number" id="age" value="50" min="30" max="75" oninput="go()"></div>
+  <div class="card"><label>Life expectancy</label><input type="number" id="lex" value="85" min="70" max="100" oninput="go()"></div>
+  <div class="card"><label>Gross IRR (% p.a.)</label><input type="range" id="irr" min="5" max="25" step="0.5" value="11.5" oninput="document.getElementById(&#39;irrv&#39;).textContent=parseFloat(this.value).toFixed(1)+&#39;%&#39;;go()"><div class="sv" id="irrv">22.0%</div></div>
+  <div class="card"><label>Income tax rate (%)</label><input type="range" id="tax" min="20" max="50" step="0.5" value="38.6" oninput="document.getElementById(&#39;taxv&#39;).textContent=parseFloat(this.value).toFixed(1)+&#39;%&#39;;go()"><div class="sv" id="taxv">38.6%</div></div>
+  <div class="card"><label>Combined estate tax — Federal + NYS (%)</label><input type="range" id="et" min="40" max="56" step="1" value="50" oninput="document.getElementById(&#39;etv&#39;).textContent=this.value+&#39;%&#39;;go()"><div class="sv" id="etv">50%</div></div>
+</div>
+
+<div class="divider">Scenario 1 — taxable account</div>
+<div class="sum">
+  <div class="sc s1a">
+    <div class="sl r">Scenario 1a</div>
+    <div class="stitle">Taxable account — after income tax, before estate tax</div>
+    <div class="sval r" id="v1a">$424.5M</div>
+    <div class="ssub">What you have accumulated — before the estate tax haircut at death</div>
+  </div>
+  <div class="sc s1b">
+    <div class="sl rr">Scenario 1b</div>
+    <div class="stitle">Taxable account — after income tax AND after estate tax</div>
+    <div class="sval rr" id="v1b">$212.2M</div>
+    <div class="ssub">What your beneficiaries actually receive</div>
+  </div>
+</div>
+
+<div class="divider">With PPLI policy</div>
+<div class="sum">
+  <div class="sc s2">
+    <div class="sl b">Scenario 2</div>
+    <div class="stitle">PPLI FCV — tax-exempt growth, estate tax still applies at death</div>
+    <div class="sval b" id="v2">$2.04B</div>
+    <div class="ssub">The policy eliminates income tax drag but estate tax remains without trust planning</div>
+  </div>
+  <div class="sc s3">
+    <div class="sl g">Scenario 3</div>
+    <div class="stitle">PPLI FCV inside Irrevocable Trust — zero income tax, zero estate tax</div>
+    <div class="sval g" id="v3">$4.09B</div>
+    <div class="ssub">The full compounded value passes to your beneficiaries — nothing lost to tax at any point</div>
+  </div>
+</div>
+
+<div class="tbl-wrap">
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th style="background:#FDF3F3">1a — taxable<br>pre-estate tax</th>
+      <th style="background:#FCEBEB">1b — taxable<br>post-estate tax</th>
+      <th style="background:#F0F4FD">2 — PPLI FCV<br>post-estate tax</th>
+      <th style="background:#EAF3DE">3 — PPLI FCV in trust<br>zero tax</th>
+      <th>3 vs 1b<br>advantage</th>
+    </tr>
+  </thead>
+  <tbody id="tbody"><tr>
+    <td>Year 5</td>
+    <td class="r">$9.4M</td>
+    <td class="rr">$4.7M</td>
+    <td class="b">$6.4M</td>
+    <td class="g">$12.7M</td>
+    <td class="g">+$8.0M</td>
+  </tr><tr>
+    <td>Year 10</td>
+    <td class="r">$17.8M</td>
+    <td class="rr">$8.9M</td>
+    <td class="b">$16.5M</td>
+    <td class="g">$33.1M</td>
+    <td class="g">+$24.2M</td>
+  </tr><tr>
+    <td>Year 15</td>
+    <td class="r">$33.5M</td>
+    <td class="rr">$16.8M</td>
+    <td class="b">$43.3M</td>
+    <td class="g">$86.6M</td>
+    <td class="g">+$69.8M</td>
+  </tr><tr>
+    <td>Year 20</td>
+    <td class="r">$63.3M</td>
+    <td class="rr">$31.6M</td>
+    <td class="b">$113.4M</td>
+    <td class="g">$226.8M</td>
+    <td class="g">+$195.2M</td>
+  </tr><tr>
+    <td>Year 25</td>
+    <td class="r">$119.3M</td>
+    <td class="rr">$59.7M</td>
+    <td class="b">$297.3M</td>
+    <td class="g">$594.6M</td>
+    <td class="g">+$535.0M</td>
+  </tr><tr>
+    <td>Year 30</td>
+    <td class="r">$225.1M</td>
+    <td class="rr">$112.5M</td>
+    <td class="b">$779.6M</td>
+    <td class="g">$1.56B</td>
+    <td class="g">+$1.45B</td>
+  </tr><tr>
+    <td>Year 35</td>
+    <td class="r">$424.5M</td>
+    <td class="rr">$212.2M</td>
+    <td class="b">$2.04B</td>
+    <td class="g">$4.09B</td>
+    <td class="g">+$3.88B</td>
+  </tr></tbody>
+</table>
+</div>
+<div class="note" id="note">At life expectancy (age 85): without any policy, the estate tax alone destroys <strong>$212.2M</strong> of accumulated wealth at death — leaving beneficiaries with $212.2M instead of $424.5M. The PPLI FCV policy inside an Irrevocable Trust delivers <strong>$4.09B</strong> — <strong>19.3× more</strong> than the taxable account after estate tax. Reinsurance estimated at $29,425 p.a. (age 50, corridor 1.50×). Policy costs: 0.4% setup, 1% Federal excise tax (one-off), 0.6% annual maintenance. Assets must be managed by a professional asset manager.</div>
+
+<div class="footer">Allegiance Partners &nbsp;·&nbsp; Confidential &nbsp;·&nbsp; For discussion purposes only &nbsp;·&nbsp; Not legal or tax advice</div>
+
+<script>
+const AT=[{m:35,c:2.50,r:.006},{m:40,c:2.00,r:.0075},{m:45,c:1.65,r:.0095},
+  {m:50,c:1.50,r:.01177},{m:55,c:1.40,r:.0148},{m:60,c:1.30,r:.0195},
+  {m:65,c:1.20,r:.0265},{m:99,c:1.15,r:.036}];
+function gap(a){return AT.find(x=>a<=x.m)||AT[AT.length-1];}
+function fm(n){
+  const a=Math.abs(n),s=n<0?'−':'';
+  if(a>=1e9)return s+'$'+(a/1e9).toFixed(2)+'B';
+  if(a>=1e6)return s+'$'+(a/1e6).toFixed(1)+'M';
+  return s+'$'+Math.round(a).toLocaleString();
+}
+function go(){
+  const C  =+document.getElementById('cap').value;
+  const AG =+document.getElementById('age').value;
+  const LEX=+document.getElementById('lex').value;
+  const IR =+document.getElementById('irr').value/100;
+  const TX =+document.getElementById('tax').value/100;
+  const ET =+document.getElementById('et').value/100;
+  const YRS=Math.max(1,LEX-AG);
+  const p=gap(AG);
+  const RC=C*(p.c-1)*p.r;
+  const SU=0.004,EX=0.01,MA=0.006;
+
+  let s1=C,s2=C*(1-SU-EX),s3=C*(1-SU-EX);
+  const SHOW=[5,10,15,20,25,30,35].filter(y=>y<=YRS);
+  if(YRS<=40&&!SHOW.includes(YRS)) SHOW.push(YRS);
+  const rows=[];
+
+  for(let y=1;y<=YRS;y++){
+    s1=s1+s1*IR-(s1*IR*TX);
+    s2=s2*(1+IR);s2=s2*(1-MA);s2=s2-RC;
+    s3=s3*(1+IR);s3=s3*(1-MA);s3=s3-RC;
+    if(SHOW.includes(y)){
+      rows.push({y,
+        s1a:Math.round(s1),
+        s1b:Math.round(s1*(1-ET)),
+        s2: Math.round(s2*(1-ET)),
+        s3: Math.round(s3),
+      });
+    }
+  }
+
+  const L=rows[rows.length-1];
+  const mult=(L.s3/Math.max(L.s1b,1)).toFixed(1);
+
+  document.getElementById('v1a').textContent=fm(L.s1a);
+  document.getElementById('v1b').textContent=fm(L.s1b);
+  document.getElementById('v2').textContent=fm(L.s2);
+  document.getElementById('v3').textContent=fm(L.s3);
+
+  document.getElementById('tbody').innerHTML=rows.map(r=>`<tr>
+    <td>Year ${r.y}</td>
+    <td class="r">${fm(r.s1a)}</td>
+    <td class="rr">${fm(r.s1b)}</td>
+    <td class="b">${fm(r.s2)}</td>
+    <td class="g">${fm(r.s3)}</td>
+    <td class="g">+${fm(r.s3-r.s1b)}</td>
+  </tr>`).join('');
+
+  document.getElementById('note').innerHTML=
+    `At life expectancy (age ${LEX}): without any policy, the estate tax alone destroys <strong>${fm(L.s1a-L.s1b)}</strong> of accumulated wealth at death — leaving beneficiaries with ${fm(L.s1b)} instead of ${fm(L.s1a)}. The PPLI FCV policy inside an Irrevocable Trust delivers <strong>${fm(L.s3)}</strong> — <strong>${mult}× more</strong> than the taxable account after estate tax. Reinsurance estimated at ${fm(RC)} p.a. (age ${AG}, corridor ${p.c.toFixed(2)}×). Policy costs: 0.4% setup, 1% Federal excise tax (one-off), 0.6% annual maintenance. Assets must be managed by a professional asset manager.`;
+}
+go();
+</script>
+
+
+</body></html>
