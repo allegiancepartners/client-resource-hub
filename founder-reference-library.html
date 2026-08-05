@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Founder Reference Library — Illustrative Example · Allegiance Partners</title>
+<style>
+  :root{
+    --teal-900:#0a2540;
+    --teal-700:#123a63;
+    --teal-600:#1b4f82;
+    --teal-500:#3572ad;
+    --teal-100:#e8eef6;
+    --coral-600:#b8860b;
+    --coral-100:#faf1dc;
+    --ink-900:#161b22;
+    --ink-600:#4b5563;
+    --ink-400:#818a95;
+    --paper:#f8f7f2;
+    --card:#ffffff;
+    --line:#e1e0d8;
+    --shadow:0 2px 10px rgba(10,37,64,0.08);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif;
+    background:var(--paper);color:var(--ink-900);
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:28px 24px 64px;}
+
+  /* ── Nav ── */
+  .page-nav{
+    display:flex;flex-wrap:nowrap;overflow-x:auto;gap:10px;
+    padding:14px 0;margin-bottom:18px;border-bottom:1px solid var(--line);
+  }
+  .nav-btn{
+    display:inline-flex;align-items:center;gap:6px;
+    font-size:0.82rem;font-weight:600;color:var(--teal-900);text-decoration:none;
+    background:var(--card);border:1px solid var(--line);border-radius:20px;
+    padding:8px 16px;transition:all .15s ease;
+  }
+  .nav-btn:hover{border-color:var(--coral-600);box-shadow:var(--shadow);}
+  .nav-btn.active{background:var(--teal-600);color:#fff;border-color:var(--teal-600);}
+
+  /* ── Hero ── */
+  .hero{
+    background:linear-gradient(135deg,var(--teal-900),var(--teal-600));
+    color:#fff;border-radius:16px;padding:32px 36px;
+    margin-bottom:28px;position:relative;overflow:hidden;
+  }
+  .hero::after{
+    content:"";position:absolute;right:-60px;top:-60px;
+    width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,0.07);
+  }
+  .hero .brand-label{
+    color:var(--coral-600);font-size:0.78rem;font-weight:700;
+    letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px;
+  }
+  .hero h1{margin:0 0 8px;font-size:1.7rem;font-weight:700;letter-spacing:-0.01em;color:#fff;}
+  .hero p{margin:0;max-width:640px;color:rgba(255,255,255,0.88);line-height:1.55;font-size:0.97rem;}
+  .demo-flag{
+    display:inline-block;font-size:10px;font-weight:600;letter-spacing:.04em;
+    text-transform:uppercase;background:rgba(184,134,11,0.25);color:#f0c96e;
+    padding:2px 8px;border-radius:20px;margin-left:10px;vertical-align:2px;
+    border:1px solid rgba(184,134,11,0.4);
+  }
+
+  /* ── Content cards ── */
+  .disc{
+    background:var(--coral-100);border:0.5px solid #F0DFC0;
+    border-left:3px solid var(--coral-600);border-radius:0 8px 8px 0;
+    padding:12px 16px;font-size:12.5px;color:#63460b;margin-bottom:20px;line-height:1.6;
+  }
+  .info{
+    background:#E6F1FB;border-left:3px solid var(--teal-500);border-radius:0 8px 8px 0;
+    padding:12px 16px;font-size:13px;color:#0C447C;margin-bottom:14px;line-height:1.6;
+  }
+  .success{
+    background:#EAF3DE;border-left:3px solid #3B6D11;border-radius:0 8px 8px 0;
+    padding:12px 16px;font-size:13px;color:#1B4D1B;margin-bottom:14px;line-height:1.6;
+  }
+  .warn{
+    background:var(--coral-100);border-left:3px solid #A32D2D;border-radius:0 8px 8px 0;
+    padding:12px 16px;font-size:13px;color:#63460b;margin-bottom:14px;line-height:1.6;
+  }
+  .intro{font-size:13px;color:var(--ink-600);margin-bottom:20px;line-height:1.6;}
+
+  /* ── TOC ── */
+  .toc{
+    background:var(--card);border:1px solid var(--line);
+    border-radius:14px;margin-bottom:26px;overflow:hidden;
+    box-shadow:var(--shadow);
+  }
+  .toc-row{
+    display:flex;gap:14px;align-items:flex-start;padding:13px 18px;
+    border-bottom:0.5px solid var(--line);text-decoration:none;color:inherit;
+    transition:background .12s;
+  }
+  .toc-row:last-child{border-bottom:none;}
+  .toc-row:hover{background:var(--teal-100);}
+  .toc-letter{flex:0 0 22px;font-weight:700;color:var(--teal-600);font-size:14px;}
+  .toc-title{flex:0 0 170px;font-weight:600;font-size:13px;color:var(--teal-900);}
+  .toc-desc{flex:1;font-size:12.5px;color:var(--ink-600);line-height:1.5;}
+
+  /* ── Appendix sections ── */
+  .app{
+    background:var(--card);border:1px solid var(--line);
+    border-radius:14px;margin-bottom:22px;overflow:hidden;
+    scroll-margin-top:80px;box-shadow:var(--shadow);
+  }
+  .app-banner{
+    background:var(--teal-900);padding:18px 24px;border-bottom:3px solid var(--coral-600);
+  }
+  .app-banner h2{color:#fff;margin-bottom:4px;font-size:1.05rem;font-weight:700;}
+  .app-banner .sub{color:rgba(199,208,224,0.9);margin-bottom:0;font-size:12.5px;}
+  .app-body{padding:20px 24px 22px;}
+
+  h3{font-size:14px;font-weight:700;color:var(--teal-900);margin:18px 0 8px;}
+  h3:first-child{margin-top:0;}
+  p{font-size:13px;color:var(--ink-900);line-height:1.6;margin-bottom:10px;}
+  .small{font-size:12px;color:var(--ink-600);line-height:1.55;}
+
+  ul{list-style:none;margin-bottom:12px;}
+  li{font-size:13px;line-height:1.55;margin-bottom:6px;padding-left:16px;position:relative;}
+  li::before{content:"•";position:absolute;left:0;color:var(--teal-500);}
+
+  .item{margin-bottom:10px;}
+  .item-t{font-weight:700;color:var(--teal-900);font-size:13px;margin-bottom:2px;}
+  .item-d{font-size:12.5px;color:var(--ink-600);line-height:1.5;}
+
+  table{width:100%;border-collapse:collapse;font-size:12.5px;margin-bottom:12px;}
+  th{font-size:11px;font-weight:600;color:#fff;background:var(--teal-900);padding:9px 12px;text-align:left;}
+  th.r,td.r{text-align:right;}
+  td{padding:8px 12px;border-bottom:0.5px solid var(--line);color:var(--ink-900);}
+  tr:nth-child(even) td{background:var(--teal-100);}
+
+  .back-top{text-align:right;margin-top:8px;}
+  .back-top a{font-size:11.5px;color:var(--teal-500);text-decoration:none;font-weight:600;}
+  .back-top a:hover{color:var(--coral-600);text-decoration:underline;}
+
+  .section-label{
+    font-size:0.72rem;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--coral-600);font-weight:700;margin:0 0 16px;
+  }
+
+  footer{
+    margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
+    font-size:0.76rem;color:var(--ink-400);line-height:1.6;text-align:center;
+  }
+  footer strong{color:var(--teal-900);}
+
+  @media(max-width:600px){
+    .toc-row{flex-wrap:wrap;}
+    .toc-title{flex:1 0 100%;}
+    .wrap{padding:16px 14px 48px;}
+  }
+</style>
+</head>
+<body id="top">
+<div class="wrap">
+
+  <nav class="page-nav">
+    <a href="index.html" class="nav-btn">🏠 Client Resource Hub</a>
+    <a href="founder-navigator.html" class="nav-btn">🧭 Founder Navigator</a>
+    <a href="discovery-call.html" class="nav-btn">📞 Discovery Call</a>
+    <a href="founder-flowchart.html" class="nav-btn">🔁 Flowchart</a>
+    <a href="founder-exit-toolkit.html" class="nav-btn">🧰 Founder Exit Toolkit</a>
+    <a href="founder-reference-library.html" class="nav-btn active">📚 Reference Library</a>
+  </nav>
+
+  <header class="hero">
+    <div class="brand-label">Allegiance Partners</div>
+    <h1>Founder Reference Library <span class="demo-flag">Illustrative Example</span></h1>
+    <p>A companion reference to the Founder Exit Toolkit &nbsp;·&nbsp; Allegiance Partners &nbsp;·&nbsp; NYC Edition &nbsp;·&nbsp; 2026</p>
+  </header>
+
+<div class="disc">This document is provided for informational and educational purposes only and does not constitute legal, tax, or investment advice. Allegiance Partners does not act as your attorney or CPA. It is an <strong>illustrative example</strong>, not specific to any individual founder or company — all names, figures, and fact patterns below are generic and for discussion purposes only. Please consult your own CPA and/or attorney before executing any strategy described here.</div>
+
+<p class="intro">Seven appendices selected from Allegiance's standard exit-planning appendix set, illustrating the depth of analysis behind the Founder Exit Toolkit. All figures below are consistent with the Toolkit's own illustrative base case: a Delaware C-Corp founder, incorporated 2022, currently valued at $15M, targeting a $75M exit around 2029, with 50% founder ownership and a 5% Dynasty Trust slice funded now.</p>
+
+<div class="toc">
+  <a class="toc-row" href="#appB"><span class="toc-letter">B</span><span class="toc-title">Basic Estate Plan</span><span class="toc-desc">Will, POA, healthcare proxy. NY estate tax cliff ($7.16M). Federal $15M exemption. $19K annual gift exclusion. $30M combined on marriage.</span></a>
+  <a class="toc-row" href="#appC"><span class="toc-letter">C</span><span class="toc-title">Income Tax Reduction on Sale</span><span class="toc-desc">QSBS §1202 dual exclusion (founder + Dynasty Trust), NYS conformity, Donor Advised Fund pre-sale charitable deduction.</span></a>
+  <a class="toc-row" href="#appD"><span class="toc-letter">D</span><span class="toc-title">Dynasty Trust</span><span class="toc-desc">Delaware dynasty trust for the founder's descendants. QSBS shelter at the illustrative exit. Funding timing and trustee selection.</span></a>
+  <a class="toc-row" href="#appE"><span class="toc-letter">E</span><span class="toc-title">Trust Situs — Delaware</span><span class="toc-desc">Why Delaware: no state income tax on trust income, no Rule Against Perpetuities, directed trust statute, asset protection, privacy.</span></a>
+  <a class="toc-row" href="#appG"><span class="toc-letter">G</span><span class="toc-title">Grantor vs. Non-Grantor Trusts</span><span class="toc-desc">Income tax treatment and who pays. SLAT &amp; SLANT presented as future, marriage-contingent spousal-access examples.</span></a>
+  <a class="toc-row" href="#appJ"><span class="toc-letter">J</span><span class="toc-title">Charitable Giving Vehicles</span><span class="toc-desc">Donor Advised Fund, Charitable Remainder Unitrust, and private foundation compared for tax-efficient philanthropy at exit.</span></a>
+  <a class="toc-row" href="#appM"><span class="toc-letter">M</span><span class="toc-title">Estate Freeze Analysis</span><span class="toc-desc">Grantor vs. Non-Grantor vs. Unplanned — consolidated family wealth, 45-year projection to life expectancy.</span></a>
+</div>
+
+<!-- ================= APPENDIX B ================= -->
+<section class="app" id="appB">
+  <div class="app-banner">
+    <h2>Appendix B — Basic Estate Plan</h2>
+    <p class="sub">Illustrative NYC Founder &nbsp;·&nbsp; Allegiance Partners &nbsp;·&nbsp; 2026</p>
+  </div>
+  <div class="app-body">
+    <h3>Overview</h3>
+    <p>A foundational estate plan establishes the legal framework for asset transfer, incapacity management, and wealth preservation. For a founder in their mid-30s with significant anticipated liquidity from an upcoming exit, this baseline layer is essential before more complex structures — the Dynasty Trust, grantor trust elections, charitable vehicles — are layered on top. Allegiance recommends engaging a trusts &amp; estates attorney from its Trusted Advisor Bench to complete the Basic Estate Plan.</p>
+
+    <h3>Core Documents Required</h3>
+    <div class="item"><div class="item-t">Last Will &amp; Testament</div><div class="item-d">Directs disposition of probate assets; names executor. If the founder currently has no children, no guardian designation is required today — revisit if that changes.</div></div>
+    <div class="item"><div class="item-t">Revocable Living Trust</div><div class="item-d">Avoids probate for NY real property; coordinates with the Dynasty Trust and QSBS assets.</div></div>
+    <div class="item"><div class="item-t">Durable Power of Attorney</div><div class="item-d">Authorizes an agent to manage financial affairs during incapacity. Especially important for a sole founder.</div></div>
+    <div class="item"><div class="item-t">Healthcare Proxy / HIPAA Authorization</div><div class="item-d">Designates a healthcare decision-maker; HIPAA authorization for medical record access.</div></div>
+    <div class="item"><div class="item-t">Living Will / Advance Directive</div><div class="item-d">Documents end-of-life care preferences. Required under NY Health Care Proxy Law.</div></div>
+
+    <h3>NY Estate Tax — The Cliff Effect</h3>
+    <div class="warn">New York imposes an estate tax with a significant <strong>'cliff effect'</strong>: if the gross estate exceeds 105% of the NY exemption (~$7.16M in 2026), the <strong>entire</strong> estate — not just the excess — becomes subject to NY estate tax. This creates a punitive marginal rate that can exceed 100% on estates near the cliff threshold.</div>
+    <ul>
+      <li>NY exemption (2026): <strong>~$7,160,000</strong></li>
+      <li>Cliff threshold (105% of exemption): <strong>~$7,518,000</strong> — above this, ALL assets are taxable, not just the excess</li>
+      <li>Rate on amounts above the exemption: <strong>~16%</strong></li>
+      <li>Planning action: use the Dynasty Trust to remove assets from the gross estate entirely</li>
+    </ul>
+
+    <h3>Federal Estate Tax Parameters (2026)</h3>
+    <table>
+      <tbody><tr><th>Parameter</th><th>Value</th></tr>
+      <tr><td>Federal lifetime exemption</td><td>$15,000,000 per individual</td></tr>
+      <tr><td>Portability (unused exemption to spouse)</td><td>Available — elect on timely filed estate tax return</td></tr>
+      <tr><td>Federal estate tax rate</td><td>40% on amounts above exemption</td></tr>
+      <tr><td>Annual gift tax exclusion</td><td>$19,000 per recipient per year</td></tr>
+      <tr><td>Gift to Dynasty Trust</td><td>Counts against lifetime exemption; file Form 709</td></tr>
+    </tbody></table>
+
+    <h3>Immediate Priorities</h3>
+    <ul>
+      <li>Draft and execute all core documents before any exit-related activity — engage T&amp;E counsel now</li>
+      <li>Name an executor and trustee — consider an institutional trustee for the Dynasty Trust</li>
+      <li>Establish the Dynasty Trust now, before the exit — see Appendix D</li>
+      <li>Use the $19,000/year annual gift exclusion per beneficiary to fund the trust incrementally</li>
+      <li>Review beneficiary designations on all financial accounts and retirement plans</li>
+      <li>Upon marriage, the exemption doubles to $30M combined — plan SLAT/SLANT at that stage (Appendix G)</li>
+    </ul>
+    <div class="back-top"><a href="#top">↑ Back to top</a></div>
+  </div>
+</section>
+
+<!-- ================= APPENDIX C ================= -->
+<section class="app" id="appC">
+  <div class="app-banner">
+    <h2>Appendix C — Income Tax Reduction on Sale</h2>
+    <p class="sub">QSBS §1202 &amp; Donor Advised Fund Strategy &nbsp;·&nbsp; Illustrative Example &nbsp;·&nbsp; 2026</p>
+  </div>
+  <div class="app-body">
+    <h3>QSBS — §1202 Overview</h3>
+    <p>Section 1202 of the Internal Revenue Code allows non-corporate taxpayers to exclude up to 100% of gain on Qualified Small Business Stock (QSBS) held for more than 5 years. For Delaware C-Corp founders, this is often the single most valuable tax provision available — potentially eliminating millions in federal tax.</p>
+
+    <h3>Qualification Requirements — Illustrative NYC Founder</h3>
+    <table>
+      <tbody><tr><th>Requirement</th><th>Status</th></tr>
+      <tr><td>C-Corporation</td><td>YES — Delaware C-Corp (not LLC, S-Corp, or partnership)</td></tr>
+      <tr><td>Domestic corporation</td><td>YES — Delaware incorporation</td></tr>
+      <tr><td>Active business (not services)</td><td>YES — technology / SaaS; confirm at exit (no service exclusion)</td></tr>
+      <tr><td>Gross assets ≤ $50M at issuance (≤$75M if issued after 7/4/2025)</td><td>YES — well under either threshold at time of share issuance</td></tr>
+      <tr><td>Original issuance to non-corporate taxpayer</td><td>YES — acquired at founding in 2022</td></tr>
+      <tr><td>Holding period &gt; 5 years</td><td>YES — incorporated 2022; 5-year hold completes 2027</td></tr>
+      <tr><td>Exclusion percentage</td><td>100% — for stock acquired after Sept. 27, 2010</td></tr>
+      <tr><td>Per-taxpayer exclusion cap</td><td>$10,000,000 or 10× adjusted basis, whichever is greater</td></tr>
+    </tbody></table>
+
+    <h3>NYS Conformity — 2026 Update</h3>
+    <div class="success"><strong>NYS Conforms to QSBS (as of June 2026).</strong> The 2026 NY Budget included a proposal to de-conform from §1202 QSBS exclusions. This proposal was debated and ultimately voted down — NYS continues to conform to federal QSBS treatment. This means the NY State income tax exclusion also applies at exit — additional savings of roughly $1.09M at the 10.9% NYS rate on a full $10M exclusion. Monitor annually — de-conform risk remains in future budget cycles.</div>
+
+    <h3>DAF — Donor Advised Fund Strategy</h3>
+    <p>A Donor Advised Fund (DAF) allows a founder to make a tax-deductible charitable contribution of appreciated stock before a liquidity event, avoiding capital gains entirely and receiving an immediate deduction.</p>
+    <ul>
+      <li><strong>Timing:</strong> contribute QSBS shares to the DAF before any sale agreement is signed</li>
+      <li><strong>Deduction:</strong> full FMV deduction up to 30% of AGI; 5-year carryforward for excess</li>
+      <li><strong>Gain avoidance:</strong> the DAF is tax-exempt — no capital gains on appreciated stock inside the DAF</li>
+      <li><strong>Grant flexibility:</strong> grants to IRS-qualified charities over time; no payout deadline</li>
+      <li><strong>Minimum contribution:</strong> most major DAF sponsors (Fidelity, Schwab, Vanguard) accept $5,000+</li>
+      <li><strong>QSBS interaction:</strong> contributing pre-exclusion shares to the DAF creates a double benefit — exclusion + deduction</li>
+    </ul>
+    <div class="back-top"><a href="#top">↑ Back to top</a></div>
+  </div>
+</section>
+
+<!-- ================= APPENDIX D ================= -->
+<section class="app" id="appD">
+  <div class="app-banner">
+    <h2>Appendix D — Dynasty Trust</h2>
+    <p class="sub">Delaware Dynasty Trust for the Founder's Descendants &nbsp;·&nbsp; Illustrative Structure &nbsp;·&nbsp; 2026</p>
+  </div>
+  <div class="app-body">
+    <h3>What Is the Dynasty Trust?</h3>
+    <p>The Dynasty Trust is an irrevocable trust established to hold an independent slice of the company — illustrated here at <strong>5%</strong> — for the benefit of the founder's descendants (children, current or future). Delaware situs is recommended for its favorable trust law (Appendix E) and its abolition of the Rule Against Perpetuities, allowing the trust to benefit multiple generations without a forced termination date.</p>
+
+    <h3>Key Structural Features</h3>
+    <ul>
+      <li><strong>Situs:</strong> Delaware — no state income tax on undistributed trust income; strong privacy laws</li>
+      <li><strong>Irrevocable</strong> — assets removed from the founder's estate; spendthrift provisions protect from creditors</li>
+      <li><strong>Beneficiaries:</strong> the founder's descendants — a true multi-generational, dynasty structure</li>
+      <li><strong>Flexible distributions</strong> — trustee has discretion over income/principal distributions to beneficiaries</li>
+      <li><strong>Grantor trust option</strong> — founder can pay trust income taxes personally, an additional tax-free gift at 38.6% (Appendix G)</li>
+    </ul>
+
+    <h3>QSBS Shelter at the Illustrative Exit</h3>
+    <p>At the illustrative $75M exit, the Dynasty Trust's 5% slice is worth $3,750,000. Because this is well under the trust's own $10,000,000 QSBS exclusion cap, the <strong>entire</strong> trust gain can be sheltered from federal (and NYS-conforming) capital gains tax once QSBS qualification is confirmed — no multi-trust structuring is required at this exit size.</p>
+    <table>
+      <tbody><tr><th></th><th class="r">Amount</th></tr>
+      <tr><td>Trust gain (5% of $75M exit)</td><td class="r">$3,750,000</td></tr>
+      <tr><td>QSBS exclusion available (single trust)</td><td class="r">$10,000,000</td></tr>
+      <tr><td>QSBS excluded</td><td class="r">$3,750,000 (100%)</td></tr>
+      <tr><td>Taxable</td><td class="r">$0</td></tr>
+      <tr><td>Tax at 38.6% NYC blended</td><td class="r">$0</td></tr>
+      <tr><td>Trust net</td><td class="r">$3,750,000</td></tr>
+    </tbody></table>
+    <p class="small">Note: at a larger exit valuation, if the trust's share of proceeds were to exceed the $10M single-trust cap, splitting into multiple sub-trusts — one per beneficiary — can multiply the available exclusion. T&amp;E counsel can model this if and when it becomes relevant.</p>
+
+    <h3>Trustee Selection</h3>
+    <ul>
+      <li>Independent individual trustee — flexibility, personal relationship, lower cost; succession risk</li>
+      <li>Institutional / corporate trustee (bank trust dept.) — continuity, expertise, regulated; higher cost</li>
+      <li>Directed trust structure — institutional administrative trustee + investment advisor (Allegiance) as advisor</li>
+      <li>Trust Protector — third party with power to modify trust, change trustees, or adapt to law changes</li>
+    </ul>
+
+    <h3>Beneficiary Designations &amp; Funding Timing</h3>
+    <p>Beneficiaries: the founder's descendants — children, current or future. As a true dynasty structure, the trust is designed to benefit not only the first generation but their descendants as well, taking advantage of Delaware's abolition of the Rule Against Perpetuities.</p>
+    <p>Funding timing: gifting the trust's 5% slice <strong>now</strong> at today's ~$15M valuation uses only <strong>$750,000</strong> of lifetime exemption, versus <strong>$3,750,000</strong> if gifted at the $75M exit valuation instead — funding early is one of the highest-value planning actions available.</p>
+    <p class="small">Action: confirm structure and drafting with T&amp;E counsel before funding.</p>
+    <div class="back-top"><a href="#top">↑ Back to top</a></div>
+  </div>
+</section>
+
+<!-- ================= APPENDIX E ================= -->
+<section class="app" id="appE">
+  <div class="app-banner">
+    <h2>Appendix E — Trust Situs</h2>
+    <p class="sub">Delaware as Optimal Trust Jurisdiction &nbsp;·&nbsp; Illustrative Example &nbsp;·&nbsp; 2026</p>
+  </div>
+  <div class="app-body">
+    <h3>Why Delaware?</h3>
+    <p>Trust situs (legal jurisdiction) determines which state's laws govern the trust and whether undistributed trust income is subject to state income tax. Delaware offers the most favorable combination of tax treatment, legal flexibility, privacy, and duration for the Dynasty Trust.</p>
+
+    <h3>Delaware Advantages</h3>
+    <div class="item"><div class="item-t">No State Income Tax</div><div class="item-d">DE does not tax undistributed income of a trust with no DE-resident beneficiaries. The Dynasty Trust avoids both NY State (10.9%) and NYC (3.876%) income tax at the trust level.</div></div>
+    <div class="item"><div class="item-t">No Rule Against Perpetuities</div><div class="item-d">DE abolished the RAP in 1995. Trusts can last for a very long duration. New York, by contrast, has an 85-year RAP.</div></div>
+    <div class="item"><div class="item-t">Directed Trust Statute</div><div class="item-d">DE allows bifurcation of trustee duties — separate investment advisor (Allegiance) and administrative trustee. Maximizes flexibility and professional management.</div></div>
+    <div class="item"><div class="item-t">Asset Protection</div><div class="item-d">Strong spendthrift and creditor protection provisions. Trust assets insulated from beneficiary creditors, divorce claims, and judgments.</div></div>
+    <div class="item"><div class="item-t">Privacy</div><div class="item-d">DE court records relating to trusts are not public. No public registration of trust terms required.</div></div>
+    <div class="item"><div class="item-t">Legal Sophistication</div><div class="item-d">DE has the most developed body of trust law; Delaware Court of Chancery provides expert trust dispute resolution.</div></div>
+
+    <h3>Comparison: NY vs. Delaware Trust Situs</h3>
+    <table>
+      <tbody><tr><th>Feature</th><th>New York</th><th>Delaware</th></tr>
+      <tr><td>Income tax on trust</td><td>Yes — 10.9% (NYS) + 3.876% (NYC)</td><td>No — if no DE-resident beneficiaries</td></tr>
+      <tr><td>Perpetuity / RAP</td><td>85-year maximum (NY EPTL)</td><td>No RAP — very long duration permitted</td></tr>
+      <tr><td>Directed trust statute</td><td>Limited</td><td>Full bifurcation allowed</td></tr>
+      <tr><td>Asset protection</td><td>Moderate</td><td>Strong spendthrift protection</td></tr>
+      <tr><td>Privacy</td><td>Court records may be public</td><td>Non-public; no registration</td></tr>
+      <tr><td>Trust law body</td><td>EPTL — established but less flexible</td><td>Chancery Court — sophisticated</td></tr>
+    </tbody></table>
+    <div class="back-top"><a href="#top">↑ Back to top</a></div>
+  </div>
+</section>
+
+<!-- ================= APPENDIX G ================= -->
+<section class="app" id="appG">
+  <div class="app-banner">
+    <h2>Appendix G — Grantor vs. Non-Grantor Trusts</h2>
+    <p class="sub">Income Tax Treatment &nbsp;·&nbsp; SLAT &amp; SLANT as Examples &nbsp;·&nbsp; Illustrative Example &nbsp;·&nbsp; 2026</p>
+  </div>
+  <div class="app-body">
+    <h3>Grantor vs. Non-Grantor Trust — Income Tax Treatment</h3>
+    <p>Every irrevocable trust is classified as either a Grantor Trust or a Non-Grantor Trust for income tax purposes. This classification determines who pays the income tax on trust earnings — and has profound implications for how quickly the trust corpus compounds (see Appendix M).</p>
+    <div class="item"><div class="item-t">Grantor Trust</div><div class="item-d">The founder pays income tax on ALL trust income personally, at their own rate (38.6% NYC). The trust itself pays no tax. Each tax payment by the founder is effectively an additional tax-free gift to the trust — supercharging growth. The trust corpus compounds at the full gross return (6.5%).</div></div>
+    <div class="item"><div class="item-t">Non-Grantor Trust</div><div class="item-d">The trust is a separate taxpayer. It pays its own income tax on earnings at trust tax rates. The trust corpus compounds at the net after-tax return (~4.0% after a 38.6% drag on 6.5% gross). No additional depletion of the founder's personal estate from tax payments.</div></div>
+    <div class="item"><div class="item-t">The Trade-Off</div><div class="item-d">Grantor Trust: faster corpus growth, additional estate depletion via tax payments — best for founders with outside liquidity to absorb the tax bill. Non-Grantor: simpler, self-contained, still outside the estate. See Appendix M for the 45-year consolidated family wealth comparison.</div></div>
+
+    <h3>SLAT &amp; SLANT — Spousal Trust Examples (Future Planning Upon Marriage)</h3>
+    <p>SLATs and SLANTs are irrevocable trusts that include a spouse as a lifetime beneficiary. They are presented here as examples of how Grantor/Non-Grantor classification interacts with spousal access. These are <strong>future</strong> structures — not relevant until marriage. The Dynasty Trust (Appendix D) is established <strong>now</strong>, before marriage, for the founder's descendants, without spousal provisions.</p>
+    <div class="item"><div class="item-t">SLAT — Spousal Lifetime Access Trust</div></div>
+    <ul>
+      <li>Structure: irrevocable trust; grantor spouse transfers assets; beneficiary spouse has discretionary access</li>
+      <li>QSBS: LOSES §1202 exclusion — trust treated as grantor trust; gain taxed to grantor at time of sale</li>
+      <li>Use case: married couples prioritizing spousal access over QSBS optimization</li>
+    </ul>
+    <div class="item"><div class="item-t">SLANT — Spousal Lifetime Access Non-Grantor Trust</div></div>
+    <ul>
+      <li>Structure: SLAT with 'adverse party' consent required for distributions — breaks grantor trust status</li>
+      <li>QSBS: PRESERVES §1202 exclusion — non-grantor treatment means the trust qualifies as a separate taxpayer</li>
+      <li>Use case: married couples who want spousal access AND to preserve QSBS eligibility</li>
+    </ul>
+
+    <h3>Comparison Table</h3>
+    <table>
+      <tbody><tr><th>Feature</th><th>Dynasty Trust</th><th>SLANT</th><th>SLAT</th></tr>
+      <tr><td>QSBS exclusion</td><td>YES</td><td>YES</td><td>NO</td></tr>
+      <tr><td>Spousal access</td><td>No (until marriage/SLAT)</td><td>Limited</td><td>Yes</td></tr>
+      <tr><td>Estate removal</td><td>YES</td><td>YES</td><td>YES</td></tr>
+      <tr><td>Pre-marital use</td><td>Recommended now</td><td>Not applicable</td><td>Not applicable</td></tr>
+      <tr><td>NYC city tax avoided</td><td>YES (DE trust)</td><td>If DE sited</td><td>If DE sited</td></tr>
+    </tbody></table>
+
+    <div class="success"><strong>Action for illustrative NYC founder:</strong> No action on SLAT/SLANT today. The Dynasty Trust should be established and funded now, before marriage. SLAT or SLANT becomes relevant only upon marriage — present as planning options at that time. Recommend revisiting with T&amp;E counsel six months before, or immediately after, marriage.</div>
+    <div class="back-top"><a href="#top">↑ Back to top</a></div>
+  </div>
+</section>
+
+<!-- ================= APPENDIX J ================= -->
+<section class="app" id="appJ">
+  <div class="app-banner">
+    <h2>Appendix J — Charitable Giving Vehicles</h2>
+    <p class="sub">DAF, CRUT, Foundation &nbsp;·&nbsp; Illustrative Example &nbsp;·&nbsp; 2026</p>
+  </div>
+  <div class="app-body">
+    <h3>Overview</h3>
+    <p>A liquidity event is an optimal moment to establish a charitable giving strategy. The combination of a large capital gain, QSBS exclusion, and anticipated family growth creates multiple planning opportunities. Vehicles range from simple (DAF) to sophisticated (private foundation).</p>
+
+    <h3>Donor Advised Fund (DAF)</h3>
+    <ul>
+      <li>Simplest vehicle — contribution is irrevocable; grants recommended over time</li>
+      <li>Deduction: FMV of assets contributed; avoids capital gains on appreciated stock</li>
+      <li>Minimum contribution: $5,000 (Fidelity Charitable, Schwab Charitable, others)</li>
+      <li>No annual payout requirement — flexible grant timing</li>
+      <li>Best for: immediate deduction at exit + ongoing philanthropy</li>
+    </ul>
+
+    <h3>Charitable Remainder Unitrust (CRUT)</h3>
+    <ul>
+      <li>Contribute appreciated stock / QSBS — no immediate capital gains tax</li>
+      <li>Trust pays out a fixed % (commonly ~5%) of corpus annually to the founder for life or a term of years</li>
+      <li>Remainder to charity at termination — partially deductible at contribution</li>
+      <li>Income stream diversifies the founder's cash flow post-exit</li>
+      <li>Best for: income need + charitable intent + a large appreciated position</li>
+    </ul>
+
+    <h3>Private Foundation</h3>
+    <ul>
+      <li>Full control over grant-making; family members can serve as officers</li>
+      <li>Deduction limited to 30% AGI (cash) / 20% AGI (appreciated property)</li>
+      <li>5% annual distribution requirement; excise taxes on investment income</li>
+      <li>Best for: significant philanthropic intent ($5M+), family legacy, grant-making control</li>
+      <li>Higher administrative cost; subject to self-dealing rules</li>
+    </ul>
+
+    <div class="success"><strong>Recommended: DAF at Exit + CRUT for a Large QSBS Position.</strong> Establish a DAF immediately at exit — fund with $1–2M of non-QSBS appreciated stock. Consider a CRUT for a portion of QSBS excess (above the $10M exclusion) to avoid partial capital gain. A private foundation is deferred — consider at a $5M+ philanthropic commitment level post-exit.</div>
+    <div class="back-top"><a href="#top">↑ Back to top</a></div>
+  </div>
+</section>
+
+<!-- ================= APPENDIX M ================= -->
+<section class="app" id="appM">
+  <div class="app-banner">
+    <h2>Appendix M — Estate Freeze Analysis</h2>
+    <p class="sub">Consolidated Family Wealth &nbsp;·&nbsp; 45-Year Projection to Life Expectancy &nbsp;·&nbsp; Illustrative Example &nbsp;·&nbsp; 2026</p>
+  </div>
+  <div class="app-body">
+    <h3>What Is an Estate Freeze — and Why Does It Matter?</h3>
+    <p>An estate freeze transfers appreciating assets into the Dynasty Trust today, so that all future growth accrues outside the taxable estate. The question is not just 'how big does the trust get?' — it is 'how much does the family receive in total, after estate tax, compared to doing nothing?' The three scenarios below compare all assets on a consolidated basis from the same starting point.</p>
+    <p>Same starting capital in all cases: Founder personal proceeds <strong>$15,000,000</strong> + Dynasty Trust proceeds (5% of a $75M exit) <strong>$3,750,000</strong> = <strong>$18,750,000</strong>. Founder age at exit: <strong>37</strong> · Life expectancy: <strong>82</strong> (SSA actuarial default) · <strong>45 years</strong> of compounding.</p>
+    <p>Gross return: <strong>6.5%</strong> · Combined income tax rate: <strong>38.6%</strong> · Net after-tax: <strong>~3.99%</strong> · Grantor Trust: <strong>6.5%</strong> (full gross) · Estate tax: Federal 40% (above $15M exemption) + NY ~16% (cliff triggered on estates this size) — illustrative combined rate <strong>50%</strong>, adjustable by state in the Founder Exit Toolkit's Post Exit Tax Planning calculator.</p>
+
+    <h3>Consolidated Family Wealth at Death (Life Expectancy) — All Assets, After Estate Tax</h3>
+    <table>
+      <tbody><tr><th>Scenario</th><th class="r">Taxable Estate at Death</th><th class="r">Estate Tax (Fed + NY)</th><th class="r">Net to Family (Total)</th><th class="r">Advantage vs. Unplanned</th></tr>
+      <tr><td>UNPLANNED</td><td class="r">$109,096,351</td><td class="r">$47,048,175</td><td class="r">$62,048,175</td><td class="r">—</td></tr>
+      <tr><td>NON-GRANTOR TRUST</td><td class="r">$87,277,081 *</td><td class="r">$36,138,540</td><td class="r">$72,957,811</td><td class="r">+$10,909,635</td></tr>
+      <tr><td>GRANTOR TRUST</td><td class="r">$45,304,733 *</td><td class="r">$15,152,366</td><td class="r">$93,943,984</td><td class="r">+$31,895,809</td></tr>
+    </tbody></table>
+    <p class="small">* Non-Grantor: taxable estate is the founder's personal assets only — the trust's $21,819,270 passes estate-tax free (included in Net to Family, not shown separately). Grantor: the founder pays the trust's income tax personally each year; at life expectancy the model shows personal assets of $45,304,733 remaining (no swap/toggle to non-grantor status was triggered over this horizon) while the trust itself has grown to $63,791,618, passing entirely free of estate tax.</p>
+
+    <h3>Why the Estate Freeze Wins — Despite Starting with the Same Capital</h3>
+    <ul>
+      <li>Grantor Trust advantage vs. Unplanned: <strong>+$31,895,809</strong> to family at life expectancy</li>
+      <li>The trust passes estate-tax free; the unplanned estate loses nearly half its value to estate tax on its own growth</li>
+      <li>Grantor election adds a further <strong>$20,986,174</strong> vs. Non-Grantor — from paying the trust's tax bill personally, an additional tax-free gift</li>
+    </ul>
+
+    <h3>Net to Family at Key Milestones (All Assets, After Estate Tax)</h3>
+    <table>
+      <tbody><tr><th>Year</th><th class="r">Unplanned</th><th class="r">Non-Grantor</th><th class="r">Grantor Trust</th></tr>
+      <tr><td>Year 5 (age 42)</td><td class="r">$18,901,186</td><td class="r">$21,181,424</td><td class="r">$21,470,099</td></tr>
+      <tr><td>Year 10 (age 47)</td><td class="r">$21,365,286</td><td class="r">$24,138,343</td><td class="r">$24,884,918</td></tr>
+      <tr><td>Year 15 (age 52)</td><td class="r">$24,361,942</td><td class="r">$27,734,331</td><td class="r">$29,184,144</td></tr>
+      <tr><td>Year 20 (age 57)</td><td class="r">$28,006,256</td><td class="r">$32,107,507</td><td class="r">$34,613,090</td></tr>
+      <tr><td>Year 25 (age 62)</td><td class="r">$32,438,202</td><td class="r">$37,425,842</td><td class="r">$41,490,138</td></tr>
+      <tr><td>Year 30 (age 67)</td><td class="r">$37,828,010</td><td class="r">$43,893,612</td><td class="r">$50,229,946</td></tr>
+      <tr><td>Year 35 (age 72)</td><td class="r">$44,382,698</td><td class="r">$51,759,238</td><td class="r">$61,374,426</td></tr>
+      <tr><td>Year 40 (age 77)</td><td class="r">$52,354,029</td><td class="r">$61,324,834</td><td class="r">$75,634,168</td></tr>
+      <tr><td>Year 45 (age 82)</td><td class="r">$62,048,175</td><td class="r">$72,957,811</td><td class="r">$93,943,984</td></tr>
+    </tbody></table>
+    <p class="small">All scenarios start from identical capital: $18,750,000. Estate tax applied at death in each year shown. Grantor Trust: founder pays trust income tax personally; trust passes free of estate tax. Figures mirror the interactive Estate Freeze calculator in the Founder Exit Toolkit at its default settings.</p>
+    <div class="back-top"><a href="#top">↑ Back to top</a></div>
+  </div>
+</section>
+
+<footer>© <strong>Allegiance Partners</strong> 2026. Illustrative example — not specific to any individual founder or company. Does not constitute legal, tax, or investment advice.</footer>
+
+</div><!-- /.wrap -->
+</body></html>
