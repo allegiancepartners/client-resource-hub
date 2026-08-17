@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About &amp; Team</title>
+<style>
+  :root{
+    --teal-900:#0a2540;
+    --teal-700:#123a63;
+    --teal-600:#1b4f82;
+    --teal-500:#3572ad;
+    --teal-100:#e8eef6;
+    --coral-600:#b8860b;
+    --coral-100:#faf1dc;
+    --ink-900:#161b22;
+    --ink-600:#4b5563;
+    --ink-400:#818a95;
+    --paper:#f8f7f2;
+    --card:#ffffff;
+    --line:#e1e0d8;
+    --shadow:0 2px 10px rgba(10,37,64,0.08);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif;
+    background:var(--paper);color:var(--ink-900);
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:28px 24px 64px;}
+
+  .page-nav{
+    display:flex;flex-wrap:nowrap;overflow-x:auto;gap:10px;
+    padding:14px 0;margin-bottom:18px;border-bottom:1px solid var(--line);
+  }
+  .nav-btn{
+    display:inline-flex;align-items:center;gap:6px;
+    font-size:0.82rem;font-weight:600;color:var(--teal-900);text-decoration:none;
+    background:var(--card);border:1px solid var(--line);border-radius:20px;
+    padding:8px 16px;transition:all .15s ease;
+  }
+  .nav-btn:hover{border-color:var(--coral-600);box-shadow:var(--shadow);}
+  .nav-btn.active{background:var(--teal-600);color:#fff;border-color:var(--teal-600);}
+
+  .hero{
+    background:linear-gradient(135deg,var(--teal-900),var(--teal-600));
+    color:#fff;border-radius:16px;padding:32px 36px;
+    margin-bottom:28px;position:relative;overflow:hidden;
+  }
+  .hero::after{
+    content:"";position:absolute;right:-60px;top:-60px;
+    width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,0.07);
+  }
+  .hero .brand-label{
+    color:var(--coral-600);font-size:0.78rem;font-weight:700;
+    letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px;
+  }
+  .hero h1{margin:0 0 8px;font-size:1.7rem;font-weight:700;letter-spacing:-0.01em;color:#fff;}
+  .hero p{margin:0;max-width:680px;color:rgba(255,255,255,0.88);line-height:1.55;font-size:0.97rem;}
+
+  .intro{font-size:13.5px;color:var(--ink-900);margin-bottom:14px;line-height:1.65;max-width:760px;}
+
+  .app{
+    background:var(--card);border:1px solid var(--line);
+    border-radius:14px;margin-bottom:22px;overflow:hidden;
+    box-shadow:var(--shadow);
+  }
+  .app-banner{
+    background:var(--teal-900);padding:16px 24px;border-bottom:3px solid var(--coral-600);
+  }
+  .app-banner h2{color:#fff;margin-bottom:4px;font-size:1.02rem;font-weight:700;}
+  .app-banner .sub{color:rgba(199,208,224,0.9);margin-bottom:0;font-size:12.5px;}
+  .app-body{padding:20px 24px 22px;}
+
+  .item{margin-bottom:18px;}
+  .item:last-child{margin-bottom:0;}
+  .item-t{font-weight:700;color:var(--teal-900);font-size:14.5px;margin-bottom:2px;}
+  .item-role{font-size:12px;color:var(--coral-600);font-weight:600;margin-bottom:6px;text-transform:uppercase;letter-spacing:.03em;}
+  .item-d{font-size:13px;color:var(--ink-600);line-height:1.6;}
+
+  .pending{
+    background:var(--coral-100);border-left:3px solid var(--coral-600);border-radius:0 8px 8px 0;
+    padding:8px 14px;font-size:12px;color:#7a5a10;margin-top:8px;line-height:1.5;font-style:italic;
+  }
+
+  .section-label{
+    font-size:0.72rem;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--coral-600);font-weight:700;margin:26px 0 12px;
+  }
+  .section-label:first-of-type{margin-top:0;}
+
+  footer{
+    margin-top:40px;padding-top:18px;border-top:1px solid var(--line);
+    font-size:0.76rem;color:var(--ink-400);line-height:1.6;text-align:center;
+  }
+  footer strong{color:var(--teal-900);}
+
+  @media(max-width:600px){
+    .wrap{padding:16px 14px 48px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav class="page-nav">
+    <a href="index.html" class="nav-btn">🏠 Client Resource Hub</a>
+    <a href="founder-navigator.html" class="nav-btn">🧭 Founder Navigator</a>
+    <a href="discovery-call.html" class="nav-btn">📞 Discovery Call</a>
+    <a href="founder-flowchart.html" class="nav-btn">🔁 Flowchart</a>
+    <a href="founder-exit-toolkit.html" class="nav-btn">🧰 Founder Exit Toolkit</a>
+    <a href="founder-reference-library.html" class="nav-btn">📚 Reference Library</a>
+  <a href="business-exit-road-map.html" class="nav-btn">🗺️ Exit Road Map</a>
+    <a href="about-us.html" class="nav-btn active">👥 About Us</a>
+  </nav>
+
+  <header class="hero">
+    <div class="brand-label">Allegiance Partners</div>
+    <h1>Who We Are</h1>
+    <p>Allegiance Partners was built to be small on purpose — a tight core of two partners and a bench of independent specialists, brought in only when their expertise is actually needed.</p>
+  </header>
+
+  <p class="intro">We don't have offices. We don't carry staff, overhead, or the layers of process that come with them — because none of that has ever been what actually protects or grows a family's wealth. What does is senior-level expertise, delivered directly, by people who have spent decades doing exactly this work at the highest levels and have no further interest in doing it inside a large institution.</p>
+  <p class="intro">That's the whole model. No junior analysts learning on your file, no committee — just the right person, at the right moment, doing work they've already done at scale for thirty years.</p>
+
+  <div class="app">
+    <div class="app-banner">
+      <h2>The Founders</h2>
+      <p class="sub">Equal partners in the firm</p>
+    </div>
+    <div class="app-body">
+
+      <div class="item">
+        <div class="item-t">John Alexander</div>
+        <div class="item-role">Co-Founder &amp; Principal</div>
+        <div class="item-d">Before Allegiance Partners, John was CEO of Lloyds Private Bank Switzerland, where he ran operations spanning Gibraltar to Dubai — a mandate that put him inside the private banking practice of half a dozen jurisdictions, and as many regulatory regimes, at once. He describes himself, only half-jokingly, as "the Ibn Battuta of international private banking" — well-travelled enough to have seen how every version of the private bank actually works, and just as often, how it doesn't.</div>
+      </div>
+
+      <div class="item">
+        <div class="item-t">Harold Hyunho Lee</div>
+        <div class="item-role">Co-Founder &amp; Principal</div>
+        <div class="item-d">Harold is John's equal partner in the firm. A CPA by training, he spent years at KPMG before moving into industry as CFO for two US multinationals operating across Asia and Australia, and later as CFO of H Mart and of Western Beef. He went on to lead the Southpole Family Office and Foundation in Fort Lee, NJ, as Head of Family Office and Chief Investment Officer, and is also a Certified Fraud Examiner. That combination — public accounting discipline, operating-company CFO experience, and single-family-office leadership — gives him deep relationships and expertise across the Korean-American ultra-high-net-worth community and cross-border planning between the US and Asia.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="app">
+    <div class="app-banner">
+      <h2>The Bench: Independent Professional Advisors</h2>
+      <p class="sub">Every engagement gets exactly the expertise it calls for</p>
+    </div>
+    <div class="app-body">
+
+      <div class="item">
+        <div class="item-t">Tim Malloy</div>
+        <div class="item-role">Estate &amp; Tax Planning Lab, Cleveland</div>
+        <div class="item-d">Tim provides the estate and tax legal work behind our most technical engagements — the trust structures, the cross-border tax questions, the parts of the plan that have to hold up to real scrutiny.</div>
+      </div>
+
+      <div class="item">
+        <div class="item-t">Malcolm Dermit</div>
+        <div class="item-role">International Wealth Protection, Zurich</div>
+        <div class="item-d">Malcolm brings deep cross-border insurance and structuring expertise, particularly around Private Placement Life Insurance for US and international clients. It's a specialized corner of wealth planning that's far more established in Europe than in the US, and one Malcolm has spent his career inside.</div>
+      </div>
+
+      <div class="item">
+        <div class="item-t">James H. Yoo, CPA</div>
+        <div class="item-role">Managing Partner, Sebit LLP · New York</div>
+        <div class="item-d">James supports incorporation, bookkeeping, and tax preparation for our clients.</div>
+      </div>
+
+      <div class="item">
+        <div class="item-t">Osahon Okundaye</div>
+        <div class="item-role">Corporate &amp; Investment Banking Counsel</div>
+        <div class="item-d">Osahon is an attorney specializing in corporate and investment banking law, and one of the professionals we refer founder clients to through the Navigator's Trusted Advisor Bench. He's independent, like the rest of the bench — and notably younger than the rest of us, which shows up in how we work together: on simpler matters we often subsidize his time, and on more complex work he charges his standard rate.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="app">
+    <div class="app-banner">
+      <h2>Research &amp; Coordination</h2>
+      <p class="sub">Keeping every engagement moving</p>
+    </div>
+    <div class="app-body">
+      <div class="item">
+        <div class="item-t">Ja'Nae</div>
+        <div class="item-d">Ja'Nae keeps every engagement moving — research, coordination, and the day-to-day work that makes sure nothing falls through the cracks between a two-partner firm and a bench of independent specialists spread across three continents.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="app">
+    <div class="app-banner">
+      <h2>How We Work</h2>
+      <p class="sub">&nbsp;</p>
+    </div>
+    <div class="app-body">
+      <div class="item">
+        <div class="item-d">For most of our founder clients — the more straightforward, single-jurisdiction engagements — you're working directly with John and Ja'Nae, start to finish. For the more complex, multi-jurisdictional, multi-generational engagements, we bring in the full bench: the right specialist, for the right piece, at the right time.</div>
+      </div>
+      <div class="item">
+        <div class="item-d">We are, collectively, old enough to have made most of the mistakes already, expert enough that we don't need training wheels, and independent enough that we only take on work we actually find interesting. That combination is rare in this industry. We think it's also exactly what a family with real complexity actually needs.</div>
+      </div>
+    </div>
+  </div>
+
+  <footer>© <strong>Allegiance Partners</strong> 2026.</footer>
+
+</div>
+</body>
+</html>
